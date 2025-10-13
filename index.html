@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ES CEMIL MELANI - Website Resmi</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container nav-container">
+      <a href="#home" class="logo">ES CEMIL MELANI</a>
+      <nav class="navbar" id="navbar">
+        <a href="#home">Beranda</a>
+        <a href="#about">Tentang</a>
+        <a href="#products">Produk</a>
+        <a href="#toppings">Topping</a>
+        <a href="#contact">Kontak</a>
+      </nav>
+      <div class="menu-toggle" id="menuToggle">☰</div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="home" class="hero">
+    <div class="container hero-content">
+      <h1>ICE SEGAR PENGHILANG GERAAH</h1>
+      <p>Sensasi manis dan segar yang cocok untuk tiap hari.</p>
+      <a href="#products" class="btn primary-btn">Lihat produk</a>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="about-section">
+    <div class="container">
+      <h2>Deskripsi Produk</h2>
+      <div class="about-content">
+        <p>Es Cemil Melani adalah es krim lembut dengan topping melimpah yang dibuat dari bahan segar dan halal.
+          Cita rasa manisnya pas, cocok untuk anak-anak, remaja, hingga orang dewasa. Tersedia dalam dua paket hemat!</p>
+        <ul>
+          <li><b>Paket Hemat 5K</b> → 3 topping favorit (bebas pilih)</li>
+          <li><b>Paket Puas 10K</b> → Semua topping lengkap!</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section id="products" class="products-section">
+    <div class="container">
+      <h2>Varian Es Cemil</h2>
+      <div class="products-grid">
+
+        <!-- Produk 5K -->
+        <div class="product-item">
+          <img src="images/imageses-5k.jpg" alt="Es Cemil Paket 5K">
+            <h3>Paket 5K</h3>
+            <p>3 topping pilihan favorit</p>
+        </div>
+
+        <!-- Produk 10K -->
+        <div class="product-item">
+          <img src="images/imageses-5k.jpg" alt="Es Cemil Paket 10K">
+            <h3>Paket 10K</h3>
+            <p>Semua topping lengkap</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- TOPPINGS -->
+  <section id="toppings" class="products-section">
+    <div class="container">
+      <h2>Topping Favorit</h2>
+      <div class="products-grid">
+
+        <div class="product-item">
+          <img src="images/choco-chips.jpg" alt="Choco Chips">
+          <h3>Choco Chips</h3>
+        </div>
+
+        <div class="product-item">
+          <img src="images/meses.jpg" alt="Meses Warna-warni">
+          <h3>Meses Warna-warni</h3>
+        </div>
+
+        <div class="product-item">
+          <img src="images/kacang.jpg" alt="Kacang Crunchy">
+          <h3>Kacang Crunchy</h3>
+        </div>
+
+        <div class="product-item">
+          <img src="images/choco-ball.jpg" alt="Choco Ball">
+          <h3>Choco Ball</h3>
+        </div>
+
+        <div class="product-item">
+          <img src="images/wafer-stick.jpg" alt="Wafer Stick">
+          <h3>Wafer Stick</h3>
+        </div>
+
+        <div class="product-item">
+          <img src="images/matcha.jpg" alt="Bubuk Matcha">
+          <h3>Bubuk Matcha</h3>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <h2>Hubungi Kami</h2>
+      <div class="contact-info-grid">
+        <div class="contact-detail">
+          <h3>✉️ Email</h3>
+          <p>escemilmelani@gmail.com</p>
+          <a href="mailto:escemilmelani@gmail.com" class="btn contact-btn">Kirim Email</a>
+        </div>
+        <div class="contact-detail">
+          <h3>📞 WhatsApp</h3>
+          <p>+62 812-9242-7016</p>
+          <a href="https://wa.me/6281292427016" target="_blank" class="btn contact-btn">Chat Langsung</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ORDER -->
+  <section id="order" class="order-section">
+    <div class="container">
+      <h2>Pesan Sekarang</h2>
+      <form id="orderForm">
+        <div class="form-group">
+          <label>Pilih Paket:</label>
+          <select id="iceCreamVariant">
+            <option value="">-- Pilih Paket --</option>
+            <option value="5000">Paket 5K (3 topping)</option>
+            <option value="10000">Paket 10K (Semua topping)</option>
+          </select>
+        </div>
+
+        <div id="toppingSelection" class="form-group" style="display:none;">
+          <label>Pilih Topping (maks. <span id="maxToppingCount">0</span>):</label>
+          <div class="topping-options"></div>
+        </div>
+
+        <div class="form-group">
+          <label>Jumlah:</label>
+          <input type="number" id="quantity" value="1" min="1">
+        </div>
+
+        <div class="form-group">
+          <label>Nama Pemesan:</label>
+          <input type="text" id="customerName" placeholder="Contoh: Siti Melani">
+        </div>
+
+        <h3>Total: <span id="totalPrice">Rp 0</span></h3>
+        <button type="submit" class="btn primary-btn">Pesan via WhatsApp</button>
+      </form>
+    </div>
+  </section>
+  
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2025 Es Cemil Melani. Hak cipta dilindungi.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
