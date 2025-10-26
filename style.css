@@ -270,4 +270,55 @@ footer {
   transform: scale(1.05);
 }
 
+/* Styling untuk alamat/tentang kami */
+.store-address {
+  margin-top: 20px;
+  background-color: #fff7e6;
+  padding: 18px;
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,0.04);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+}
+
+.store-address h3 {
+  color: var(--primary-color);
+  font-size: 1.05rem;
+  margin-bottom: 8px;
+}
+
+.store-address p {
+  color: #4b4b4b;
+  margin: 6px 0;
+  line-height: 1.4;
+}
+
+.contact-detail h3 {
+  margin-bottom: 8px;
+}
+
+/* Perbaikan tampilan pada .contact-info-grid agar rapi saat ada 3 kolom */
+.contact-info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  align-items: start;
+}
+
+/* Tombol link maps khusus agar beda */
+.btn.contact-btn {
+  display: inline-block;
+  padding: 8px 18px;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+/* Responsif: beri spacing lebih baik pada layar kecil */
+@media (max-width: 480px) {
+  .store-address {
+    padding: 14px;
+  }
+}
+
+
+
 
