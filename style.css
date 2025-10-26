@@ -195,7 +195,7 @@ footer {
 .order-section {
   background: 
     linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), /* lapisan transparan */
-    url('WhatsApp Image 2025-09-26 at 22.01.00_920f8318.jpg') center/cover no-repeat; /* gambar background */
+    url('https://github.com/escemilmelaniisw-alt/escemilmelani/blob/main/bacround.jpg') center/cover no-repeat; /* gambar background */
   text-align: center;
   padding: 50px 20px;
   border-radius: 25px;
@@ -269,4 +269,5 @@ footer {
   background-color: #43a047;
   transform: scale(1.05);
 }
+
 
