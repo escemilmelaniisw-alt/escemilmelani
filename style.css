@@ -195,7 +195,7 @@ footer {
 .order-section {
   background: 
     linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), /* lapisan transparan */
-    url('https://github.com/escemilmelaniisw-alt/escemilmelani/blob/main/bacround.jpg') center/cover no-repeat; /* gambar background */
+    url('bacround.jpg') center/cover no-repeat; /* gambar background */
   text-align: center;
   padding: 50px 20px;
   border-radius: 25px;
@@ -318,6 +318,7 @@ footer {
     padding: 14px;
   }
 }
+
 
 
 
