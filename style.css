@@ -4,6 +4,7 @@
   --accent-color: #28a745;
   --text-color: #343a40;
   --light-text: #ffffff;
+  --muted-border: rgba(52, 58, 64, 0.06);
   --font-family: 'Poppins', sans-serif;
 }
 
@@ -18,6 +19,7 @@ body {
   font-family: var(--font-family);
   color: var(--text-color);
   line-height: 1.6;
+  background: #fff;
 }
 
 .container {
@@ -29,10 +31,10 @@ body {
 /* Header */
 header {
   background: var(--light-text);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
   position: sticky;
   top: 0;
-  z-index: 1000;
+  z-index: 1100;
 }
 
 .nav-container {
@@ -46,18 +48,21 @@ header {
   font-size: 1.6rem;
   font-weight: 700;
   color: var(--primary-color);
+  text-decoration: none;
 }
 
 .navbar a {
   margin-left: 25px;
   font-weight: 600;
   color: var(--text-color);
+  text-decoration: none;
 }
 
 .navbar a:hover {
   color: var(--primary-color);
 }
 
+/* Toggle menu (mobile) */
 .menu-toggle {
   display: none;
   font-size: 1.8rem;
@@ -83,7 +88,8 @@ section {
   padding: 80px 0;
 }
 
-section:nth-child(even) {
+/* Note: menggunakan warna sekunder secara hati-hati */
+section:nth-of-type(even) {
   background: var(--secondary-color);
 }
 
@@ -94,7 +100,7 @@ h2 {
   color: var(--primary-color);
 }
 
-/* Products */
+/* Products grid */
 .products-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -103,50 +109,76 @@ h2 {
 
 .product-item {
   background: var(--light-text);
-  padding: 25px;
+  padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
   text-align: center;
+  overflow: hidden;
 }
 
-/* Contact */
+/* Gambar produk: responsive, tidak terdistorsi */
+.product-item img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3; /* mempertahankan rasio, modern dan stabil */
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  transition: transform 0.3s ease;
+}
+
+.product-item:hover img {
+  transform: scale(1.05);
+}
+
+/* Contact area (grid untuk stabilitas) */
 .contact-info-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  gap: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  align-items: start;
 }
 
+/* Contact card */
 .contact-detail {
-  flex: 1;
-  min-width: 280px;
-  padding: 20px;
-  border: 1px solid #0ffc23;
+  padding: 18px;
   border-radius: 8px;
   text-align: center;
+  background: #fff;
+  border: 1px solid var(--muted-border);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.03);
 }
 
-/* Buttons */
+/* Tombol dasar */
 .btn {
   display: inline-block;
-  padding: 10px 25px;
-  border-radius: 5px;
+  padding: 10px 20px;
+  border-radius: 6px;
   font-weight: 600;
-  transition: 0.3s;
+  transition: 0.25s ease;
+  text-decoration: none;
 }
 
+/* Primary button */
 .primary-btn {
   background: var(--primary-color);
   color: var(--light-text);
+  border: none;
 }
 
 .primary-btn:hover {
-  background: #0057b3bb;
+  background: #0057b3;
 }
 
+/* Contact-style button (maps, email, wa) */
 .contact-btn {
   background: var(--accent-color);
   color: var(--light-text);
+  border: none;
+}
+
+.contact-btn:hover {
+  filter: brightness(0.95);
 }
 
 /* Footer */
@@ -158,49 +190,16 @@ footer {
   font-size: 0.9rem;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .navbar {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 60px;
-    left: 0;
-    width: 100%;
-    background: var(--light-text);
-  }
-
-  .navbar.active {
-    display: flex;
-  }
-
-  .menu-toggle {
-    display: block;
-  }
-}
-.product-item img {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: 15px;
-  transition: transform 0.3s ease;
-}
-
-.product-item:hover img {
-  transform: scale(1.05);
-}
-/* ===== Bagian Pemesanan ===== */
 /* ===== Bagian Pemesanan ===== */
 .order-section {
-  background: 
-    linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), /* lapisan transparan */
-    url('bacround.jpg') center/cover no-repeat; /* gambar background */
+  background:
+    linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)),
+    url('bacround.jpg') center/cover no-repeat;
   text-align: center;
   padding: 50px 20px;
   border-radius: 25px;
   margin-top: 60px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
 }
 
 .order-section h2 {
@@ -211,18 +210,19 @@ footer {
 
 .order-section p {
   color: #555;
-  font-size: 1.1em;
-  margin-bottom: 40px;
+  font-size: 1.05em;
+  margin-bottom: 30px;
 }
 
 .order-card {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  background: rgb(29, 238, 10);
+  background: #f1fff3;
   border-radius: 20px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  max-width: 700px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.06);
+  max-width: 900px;
   margin: 0 auto;
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -230,54 +230,57 @@ footer {
 
 .order-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.12);
 }
 
 .order-img {
   width: 300px;
-  height: 300px;
+  max-width: 40%;
+  height: auto;
+  aspect-ratio: 1/1;
   object-fit: cover;
 }
 
 .order-info {
   padding: 20px;
   text-align: left;
+  max-width: 560px;
 }
 
 .order-info h3 {
-  color: #00ec4f;
-  font-size: 1.6em;
+  color: #00a33a;
+  font-size: 1.25em;
 }
 
 .order-info p {
-  color: #0fc91e;
+  color: #2e7d32;
   margin: 10px 0 20px;
 }
 
 .order-btn {
   display: inline-block;
   background-color: #4caf50;
-  color: rgb(16, 243, 65);
+  color: #ffffff;
   text-decoration: none;
   font-weight: bold;
-  padding: 12px 25px;
+  padding: 12px 20px;
   border-radius: 30px;
-  transition: background 0.3s ease, transform 0.2s ease;
+  transition: background 0.25s ease, transform 0.2s ease;
 }
 
 .order-btn:hover {
   background-color: #43a047;
-  transform: scale(1.05);
+  transform: scale(1.02);
 }
 
 /* Styling untuk alamat/tentang kami */
 .store-address {
   margin-top: 20px;
   background-color: #fff7e6;
-  padding: 18px;
+  padding: 16px;
   border-radius: 12px;
-  border: 1px solid rgba(0,0,0,0.04);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  border: 1px solid var(--muted-border);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.03);
 }
 
 .store-address h3 {
@@ -292,34 +295,56 @@ footer {
   line-height: 1.4;
 }
 
-.contact-detail h3 {
-  margin-bottom: 8px;
-}
+/* Responsif */
+@media (max-width: 768px) {
+  .navbar {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background: var(--light-text);
+    z-index: 1200;
+    padding: 12px 20px;
+  }
 
-/* Perbaikan tampilan pada .contact-info-grid agar rapi saat ada 3 kolom */
-.contact-info-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 20px;
-  align-items: start;
-}
+  .navbar.active {
+    display: flex;
+  }
 
-/* Tombol link maps khusus agar beda */
-.btn.contact-btn {
-  display: inline-block;
-  padding: 8px 18px;
-  border-radius: 8px;
-  text-decoration: none;
-}
+  .menu-toggle {
+    display: block;
+  }
 
-/* Responsif: beri spacing lebih baik pada layar kecil */
-@media (max-width: 480px) {
-  .store-address {
-    padding: 14px;
+  .product-item img {
+    aspect-ratio: 16/9;
+    height: auto;
+  }
+
+  .order-img {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .order-card {
+    flex-direction: column;
+    gap: 12px;
   }
 }
 
+/* Extra small screens */
+@media (max-width: 480px) {
+  .store-address {
+    padding: 12px;
+  }
 
+  .hero {
+    padding: 60px 20px;
+  }
 
-
+  .hero h1 {
+    font-size: 2rem;
+  }
+}
 
